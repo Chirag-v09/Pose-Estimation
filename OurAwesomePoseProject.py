@@ -6,6 +6,14 @@ cap = cv2.VideoCapture('3.mp4')
 
 detect = pm.PoseDetector()
 ptime = 0
+
+save_name = "PoseDetectionWithRightElbow.avi"
+fps = 25
+width = int(cap.get(3))
+height = int(cap.get(4))
+output_size = (width, height)
+out = cv2.VideoWriter(save_name, cv2.VideoWriter_fourcc(*'XVID'), fps, output_size)
+
 while cap.isOpened():
 
     success, img = cap.read()
@@ -21,10 +29,12 @@ while cap.isOpened():
         cv2.circle(img, (lm_list[14][1], lm_list[14][2]), 15, (0, 0, 255), cv2.FILLED)
 
     # print(lm_list)
-
+    # To calculate frames per second
     ctime = time.time()
     fps = 1 / (ctime - ptime)
     ptime = ctime
+
+    out.write(img)
 
     cv2.putText(img, str(int(fps)), (70, 50), cv2.FONT_HERSHEY_PLAIN, 3, (255, 0, 0), 3)
 

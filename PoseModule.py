@@ -93,7 +93,7 @@ def main():
             cv2.circle(img, (lm_list[14][1], lm_list[14][2]), 15, (0, 0, 255), cv2.FILLED)
 
         # print(lm_list)
-
+        # To calculate frames per second
         ctime = time.time()
         fps = 1 / (ctime - ptime)
         ptime = ctime
