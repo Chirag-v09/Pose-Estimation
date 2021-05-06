@@ -1,4 +1,4 @@
-# Pose-Estimation-Project
+# Pose-Estimation-Project-on-CPU
 Pose Estimation
 
 ##
